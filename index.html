@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Free CCNA TEST Trắc nghiệm trực tuyến</title>
+
+  <style>
+    :root {
+      --mau-chinh: #00a4de;
+      --mau-phu: #5dc8ed;
+      --mau-chinh-dam: #0088bd;
+
+      --mau-nen: #f4fbfe;
+      --mau-the: #ffffff;
+
+      --mau-chu: #17324d;
+      --mau-chu-phu: #6b7f91;
+
+      --mau-vien: #dcecf3;
+
+      --do-cong: 22px;
+
+      --bong:
+        0 18px 45px rgba(0, 90, 130, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      color: var(--mau-chu);
+
+      background:
+        radial-gradient(
+          circle at 10% 0%,
+          rgba(93, 200, 237, 0.30),
+          transparent 35%
+        ),
+
+        radial-gradient(
+          circle at 100% 100%,
+          rgba(0, 164, 222, 0.15),
+          transparent 35%
+        ),
+
+        var(--mau-nen);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 30px 18px;
+
+      overflow-x: hidden;
+    }
+
+    /* =========================
+       KHUNG CHINH
+    ========================= */
+
+    .khung {
+      width: min(900px, 100%);
+    }
+
+    .the {
+      background: rgba(255, 255, 255, 0.92);
+
+      border: 1px solid rgba(220, 236, 243, 0.9);
+
+      border-radius: var(--do-cong);
+
+      box-shadow: var(--bong);
+
+      padding: clamp(30px, 6vw, 60px);
+
+      text-align: center;
+
+      backdrop-filter: blur(12px);
+
+      animation: hienThi 0.6s ease both;
+    }
+
+    /* =========================
+       PHAN DAU
+    ========================= */
+
+    .bieu-tuong {
+      width: 76px;
+      height: 76px;
+
+      margin: 0 auto 22px;
+
+      border-radius: 20px;
+
+      object-fit: contain;
+
+      box-shadow:
+        0 10px 28px rgba(0, 164, 222, 0.20);
+
+      animation:
+        hienBieuTuong 0.8s ease both;
+    }
+
+    .tieu-de {
+      margin: 0;
+
+      font-size: clamp(28px, 5vw, 42px);
+
+      font-weight: 850;
+
+      line-height: 1.2;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--mau-chinh-dam),
+          var(--mau-chinh),
+          var(--mau-phu)
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+    }
+
+    .mo-ta {
+      max-width: 600px;
+
+      margin: 15px auto 0;
+
+      color: var(--mau-chu-phu);
+
+      font-size: 16px;
+
+      line-height: 1.6;
+    }
+
+    /* =========================
+       DANH SACH LUA CHON
+    ========================= */
+
+    .danh-sach {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 18px;
+
+      margin-top: 38px;
+    }
+
+    /* =========================
+       NUT
+    ========================= */
+
+    .nut {
+      position: relative;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 17px;
+
+      min-height: 115px;
+
+      padding: 20px 22px;
+
+      border-radius: 17px;
+
+      border: 1px solid var(--mau-vien);
+
+      background: #fff;
+
+      color: var(--mau-chu);
+
+      text-decoration: none;
+
+      text-align: left;
+
+      overflow: hidden;
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+    }
+
+    /*
+      Lop sang chuyen dong khi hover
+    */
+
+    .nut::before {
+      content: "";
+
+      position: absolute;
+
+      width: 150px;
+      height: 150px;
+
+      right: -80px;
+      top: -80px;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--mau-phu),
+          var(--mau-chinh)
+        );
+
+      opacity: 0.08;
+
+      transition:
+        transform 0.4s ease,
+        opacity 0.4s ease;
+    }
+
+    .nut:hover {
+      transform:
+        translateY(-6px);
+
+      border-color:
+        rgba(0, 164, 222, 0.35);
+
+      box-shadow:
+        0 18px 35px rgba(0, 120, 170, 0.16);
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff,
+          #f5fcff
+        );
+    }
+
+    .nut:hover::before {
+      transform: scale(2.2);
+
+      opacity: 0.14;
+    }
+
+    .nut:active {
+      transform:
+        translateY(-2px)
+        scale(0.985);
+
+      box-shadow:
+        0 8px 20px rgba(0, 120, 170, 0.12);
+    }
+
+    /* =========================
+       ICON
+    ========================= */
+
+    .icon {
+      position: relative;
+
+      flex: 0 0 58px;
+
+      width: 58px;
+      height: 58px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 16px;
+
+      color: #fff;
+
+      font-size: 27px;
+
+      font-weight: 800;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--mau-chinh),
+          var(--mau-phu)
+        );
+
+      box-shadow:
+        0 8px 18px rgba(0, 164, 222, 0.20);
+
+      transition:
+        transform 0.3s ease;
+    }
+
+    .nut:hover .icon {
+      transform:
+        rotate(-4deg)
+        scale(1.08);
+    }
+
+    /* =========================
+       NOI DUNG NUT
+    ========================= */
+
+    .noi-dung {
+      position: relative;
+
+      flex: 1;
+
+      min-width: 0;
+    }
+
+    .ten {
+      display: block;
+
+      font-size: 18px;
+
+      font-weight: 800;
+
+      line-height: 1.3;
+
+      margin-bottom: 5px;
+
+      transition:
+        color 0.25s ease;
+    }
+
+    .nut:hover .ten {
+      color: var(--mau-chinh-dam);
+    }
+
+    .mo-ta-nut {
+      display: block;
+
+      color: var(--mau-chu-phu);
+
+      font-size: 13px;
+
+      line-height: 1.4;
+    }
+
+    /* =========================
+       MUI TEN
+    ========================= */
+
+    .mui-ten {
+      position: relative;
+
+      flex: 0 0 auto;
+
+      color: var(--mau-chinh);
+
+      font-size: 23px;
+
+      transition:
+        transform 0.25s ease;
+    }
+
+    .nut:hover .mui-ten {
+      transform:
+        translateX(5px);
+    }
+
+    /* =========================
+       CHAN TRANG
+    ========================= */
+
+    .chan-trang {
+      margin-top: 30px;
+
+      color: var(--mau-chu-phu);
+
+      font-size: 12px;
+    }
+
+    /* =========================
+       ANIMATION
+    ========================= */
+
+    @keyframes hienThi {
+      from {
+        opacity: 0;
+
+        transform:
+          translateY(20px)
+          scale(0.98);
+      }
+
+      to {
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+      }
+    }
+
+    @keyframes hienBieuTuong {
+      from {
+        opacity: 0;
+
+        transform:
+          translateY(-12px)
+          scale(0.85);
+      }
+
+      to {
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+      }
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 650px) {
+
+      body {
+        padding: 15px 12px;
+      }
+
+      .the {
+        padding:
+          32px 18px;
+      }
+
+      .danh-sach {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+
+        margin-top: 28px;
+      }
+
+      .nut {
+        min-height: 100px;
+
+        padding: 17px;
+      }
+
+      .icon {
+        flex-basis: 52px;
+
+        width: 52px;
+        height: 52px;
+
+        border-radius: 14px;
+
+        font-size: 24px;
+      }
+
+      .ten {
+        font-size: 16px;
+      }
+
+      .mo-ta-nut {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 380px) {
+
+      .the {
+        padding:
+          27px 14px;
+      }
+
+      .bieu-tuong {
+        width: 64px;
+        height: 64px;
+      }
+
+      .tieu-de {
+        font-size: 27px;
+      }
+
+      .mo-ta {
+        font-size: 14px;
+      }
+
+      .nut {
+        min-height: 90px;
+
+        padding: 14px;
+      }
+
+      .icon {
+        flex-basis: 46px;
+
+        width: 46px;
+        height: 46px;
+
+        font-size: 21px;
+      }
+
+      .mui-ten {
+        font-size: 19px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="khung">
+
+    <section class="the">
+
+      <!--
+        Logo.
+        Có thể thay URL này bằng logo riêng của bạn.
+      -->
+      <img
+        class="bieu-tuong"
+        src="https://www.citypng.com/public/uploads/preview/cisco-square-blue-logo-icon-png-735811696612218gzoiadfplh.png"
+        alt="Logo"
+      >
+
+      <h1 class="tieu-de">
+        Trắc nghiệm trực tuyến
+      </h1>
+
+      <p class="mo-ta">
+        Chọn môn học để bắt đầu bài kiểm tra.
+        Câu hỏi được lấy ngẫu nhiên từ ngân hàng câu hỏi.
+      </p>
+
+
+      <div class="danh-sach">
+
+        <!-- ======================
+             TIẾNG ANH
+        ======================= -->
+
+        <a
+          class="nut"
+          href="URL_WEB_APP_TRAC_NGHIEM_TIENG_ANH"
+        >
+
+          <span class="icon">
+            A
+          </span>
+
+          <span class="noi-dung">
+
+            <span class="ten">
+              CCNA TEST in English
+            </span>
+
+            <span class="mo-ta-nut">
+              CCNA TEST in English
+            </span>
+
+          </span>
+
+          <span class="mui-ten">
+            →
+          </span>
+
+        </a>
+
+
+        <!-- ======================
+             TIẾNG VIỆT
+        ======================= -->
+
+        <a
+          class="nut"
+          href="URL_WEB_APP_TRAC_NGHIEM_TIENG_VIET"
+        >
+
+          <span class="icon">
+            V
+          </span>
+
+          <span class="noi-dung">
+
+            <span class="ten">
+              Trắc nghiệm CCNA tiếng Việt
+            </span>
+
+            <span class="mo-ta-nut">
+              Trắc nghiệm bằng tiếng Việt cho người mới
+            </span>
+
+          </span>
+
+          <span class="mui-ten">
+            →
+          </span>
+
+        </a>
+
+      </div>
+
+
+      <div class="chan-trang">
+        Chọn Ngôn ngữ để bắt đầu
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
